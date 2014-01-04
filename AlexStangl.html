@@ -6,13 +6,16 @@
   <style type="text/css">
    .topheading {text-align:left;font-size:larger}
    .sectionhead {text-align:left;font-size:x-large;font-variant:small-caps;padding-top:1.5em}
-   .jobblock {padding-top:0.5em;padding-bottom:1em}
+   .jobblock {padding-top:0.5em;padding-bottom:1em/*;page-break-inside:avoid*/}
    .jobline {font-weight:bolder}
    .rightalign {text-align:right}
    body {margin:0.5in;font-family:sans-serif}
    ul {list-style-position:outside}
    hr {border-color:#000000;border-style:solid;border-width:2px 0 0; clear:both;margin:0 0 0px;height:0}
    img {float:right}
+   @media print {
+    html, body { height: 99%; }
+   }
   </style>
  </head>
  <body>
@@ -45,16 +48,16 @@
   <div class="jobblock">
    <table width="100%">
     <tr>
-     <td width="25%"><div class="jobline">Consultant</div></td>
-     <td width="50%"><div class="jobline"><center>Technology Partners, Inc., St. Louis, Missouri<br>Client: UniGroup, Inc.</center></div></td>
-     <td width="25%"><div class="jobline" style="text-align:right">November 2004 - Present</div></td>
+     <td width="20%"><div class="jobline">Consultant</div></td>
+     <td width="60%"><div class="jobline"><center>Technology Partners, St. Louis, Missouri<br>Client: UniGroup, Inc.</center></div></td>
+     <td width="20%"><div class="jobline" style="text-align:right">November 2004 - Present</div></td>
     </tr>
    </table>
    <ul>
     <li>Used Scrum agile process to develop web applications supporting <a href="http://www.getasam.com">a container storage and moving business</a>, including batch and billing systems, automated credit-card processing, and web services.</li>
-    <li>Developed numerous internal web applications, including ones to coordinate service personnel, integrate vanline business with new container business, and streamline operations for move coordinators, and message router.</li>
+    <li>Developed numerous web applications, including ones to coordinate personnel, integrate businesses, streamline operations, message router.</li>
     <li>Performed code reviews, refactorings, promoted quality development practices, and incorporated good ideas from functional programming.</li>
-    <li>Development tools include multithreaded Java, JSF, PrimeFaces, Spring MVC, Hibernate, Spring, Guava, Atomikos, HornetQ, MQ Series, Camel, PostgreSQL, Maven, JSP, Struts, git, EJB, Tomcat, WebSphere, WSAD/RAD, DB2, SOAP, Tiles, JUnit, TestNG, JProfiler, XSLT, Ajax, ant, Jenkins, ansible, LDAP, iText, Quartz, plantuml, Visio, XDE.</li>
+    <li>Development tools include multithreaded Java, JavaScript, JSF, PrimeFaces, Spring MVC, Hibernate, Spring, Guava, Atomikos, Eclipse, HornetQ, MQ Series, Camel, PostgreSQL, Maven, JSP, Struts, git, EJB, Tomcat, WebSphere, DB2, Tiles, JUnit, TestNG, FindBugs, Sonar, JProfiler, XSLT, Ajax, Jira, Crucible, Fisheye, ant, Jenkins, ansible, LDAP, iText, Quartz, plantuml, XDE.</li>
    </ul>
   </div>
 
@@ -67,45 +70,54 @@
     </tr>
    </table>
    Prepublish technical review of books, with an eye for inaccuracies, omissions, and other technical flaws, but also grammatical errors and typos:
-   <ul>
-    <li><a href="http://shop.oreilly.com/product/9780596514983.do">Real World Haskell</a></li>
-    <li><a href="http://shop.oreilly.com/product/0636920025481.do">Understanding Computation</a></li>
-    <li><a href="http://shop.oreilly.com/product/0636920028420.do">Java Network Programming, 4th Edition</a></li>
-    <li><a href="http://shop.oreilly.com/product/0636920028277.do">JavaScript Testing with Jasmine</a></li>
-    <li><a href="http://shop.oreilly.com/product/0636920030133.do">JavaMail API</a></li>
-    <li><a href="http://shop.oreilly.com/product/0636920026365.do">Parallel and Concurrent Programming in Haskell</a>
-    <li>Programmer's Guide to JavaScript</li>
-    <li>and others</li>
-   </ul>
+   <table width="100%">
+    <tr>
+     <td width="50%">
+      <ul>
+       <li><a href="http://shop.oreilly.com/product/9780596514983.do">Real World Haskell</a></li>
+       <li><a href="http://shop.oreilly.com/product/0636920025481.do">Understanding Computation</a></li>
+       <li><a href="http://shop.oreilly.com/product/0636920026365.do">Parallel and Concurrent Programming in Haskell</a>
+       <li><a href="http://shop.oreilly.com/product/0636920028420.do">Java Network Programming, 4E</a></li>
+       </ul>
+      </td>
+      <td width="50%"><ul>
+       <li><a href="http://shop.oreilly.com/product/0636920028277.do">JavaScript Testing with Jasmine</a></li>
+       <li><a href="http://shop.oreilly.com/product/0636920030133.do">JavaMail API</a></li>
+       <li>Programmer's Guide to JavaScript</li>
+       <li>and others</li>
+      </ul>
+     </td>
+    </tr>
+   </table>
   </div>
 
   <div class="jobblock">
    <table width="100%">
     <tr>
-     <td width="25%"><div class="jobline">Consultant</div></td>
-     <td width="50%"><div class="jobline"><center>e2e Partners, Inc., St. Louis, Missouri<br>Client: A.G. Edwards, Inc.</center></div></td>
-     <td width="25%"><div class="jobline" style="text-align:right">April 2000 - October 2004</div></td>
+     <td width="20%"><div class="jobline">Consultant</div></td>
+     <td width="60%"><div class="jobline"><center>e2e Partners, Inc., St. Louis, Missouri<br>Client: A.G. Edwards, Inc.</center></div></td>
+     <td width="20%"><div class="jobline" style="text-align:right">April 2000 - October 2004</div></td>
     </tr>
    </table>
    <ul>
-    <li>Participated in design, development, and tuning of <a href="http://www.agedwards.com">client account access system</a>, web apps supporting internal operations, report generation, and development and testing tools.</li>
-    <li>Used multithreaded Java, JSP, EJB, C/C++, Python, JDBC/SQL, WebLogic, Oracle, MQ Series, MySQL, Ant, Tomcat, AspectJ, JUnit, Cactus, XML/XSLT, Servlets, LDAP, JavaMail, Jasper Reports, FOP, Together-J, Rational Rose.</li>
-    <li>Provided mentoring, and conducted code reviews.</li>
+    <li>Participated in development of <a href="http://www.agedwards.com">client account access system</a>, web apps supporting operations, report generation, development and testing tools.</li>
+    <li>Used multithreaded Java, JavaScript, JSP, EJB, C/C++, Python, JDBC/SQL, WebLogic, Oracle, MQ Series, MySQL, Ant, Tomcat, AspectJ, JUnit, Cactus, XML/XSLT, servlets, LDAP, JavaMail, Jasper Reports, FOP</li>
+    <li>Provided mentoring and conducted code reviews.</li>
    </ul>
   </div>
 
   <div class="jobblock">
    <table width="100%">
     <tr>
-     <td width="25%"><div class="jobline">Consultant</div></td>
-     <td width="50%"><div class="jobline"><center>Anderson Technologies, Inc., St. Louis, Missouri<br>Client: Data Research Associates</center></div></td>
-     <td width="25%"><div class="jobline" style="text-align:right">February 1997 - March 2000</div></td>
+     <td width="20%"><div class="jobline">Consultant</div></td>
+     <td width="60%"><div class="jobline"><center>Anderson Technologies, St. Louis, Missouri<br>Client: Data Research Associates</center></div></td>
+     <td width="20%"><div class="jobline" style="text-align:right">February 1997 - March 2000</div></td>
     </tr>
    </table>
    <ul>
     <li>Developed and maintained library software using multithreaded C++, dynamic web page generation, and CORBA.</li>
     <li>Salvaged $1,000,000 contract.</li>
-    <li>Ported <a href="http://web.archive.org/web/20000301233416/http://web2.dra.com/">web-based public access catalog</a> to VMS and SunOS with POSIX threads.</li>
+    <li>Ported <a href="http://web.archive.org/web/20000301233416/http://web2.dra.com/">online public access catalog</a> to VMS and SunOS w/ POSIX threads.</li>
     <li>Developed InstallShield installation scripts.</li>
    </ul>
   </div>
@@ -122,25 +134,21 @@
     <li>Led team which developed database synchronization for Sales Force Automation system, using C++, ODBC, COM.</li>
     <li>Led team responsible for developing the new GUI written in VB.</li>
     <li>Developed a sophisticated runtime error reporting system.</li>
-    <li>Wrote automation scripts, resulting in major time savings and error prevention.</li>
+    <li>Wrote automation scripts, saving major time and preventing errors.</li>
     <li>Conducted code reviews, encouraged quality programming and design practices, conducted interviews, and wrote specs.</li>
    </ul>
   </div>
 
-  <div class="sectionhead">Personal Projects</div>
+  <div class="sectionhead" style="padding-top:0.5em">Personal Projects</div>
   <hr>
   <div>
    <ul>
     <li>Languages used: Haskell, Scala, Clojure, Lisp, Ruby, OCaml</li>
-    <li>Some Open Source projects:
-     <ul>
       <li><a href="https://github.com/astangl/crostex">crostex</a>, crossword compiler written in Java</li>
       <li><a href="https://github.com/astangl/xroz">xroz</a>, JavaScript app to play crossword puzzles in HTML5 browsers</li>
       <li><a href="https://github.com/astangl/uriparser-hs">uriparser-hs</a>, RFC3986 compliant URI parser written in Haskell, with tests</li>
       <li><a href="https://github.com/astangl/list-index">list-index</a>, index allowing fast random access to infinite Haskell lists</li>
-      <li><a href="https://github.com/astangl/haskell-vendingmachine">vending machine simulation</a> (used for <a href="http://stllambdalounge.files.wordpress.com/2008/12/lambdaloungehaskellpresentation20090604.pdf">presentation</a>, <a href="http://groups.google.com/group/lambda-lounge/msg/3dd214c232da1660">followup material</a>)</li>
-     </ul>
-    </li>
+      <li><a href="https://github.com/astangl/haskell-vendingmachine">vending machine simulation</a> (used for <a href="http://stllambdalounge.files.wordpress.com/2008/12/lambdaloungehaskellpresentation20090604.pdf">presentation</a>, <a href="http://groups.google.com/group/lambda-lounge/msg/3dd214c232da1660">followup</a>)</li>
    </ul>
   </div>
  </body>
