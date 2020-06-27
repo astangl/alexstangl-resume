@@ -6,6 +6,7 @@
   <style type="text/css">
    .topheading {text-align:left;font-size:larger}
    .sectionhead {text-align:left;font-size:x-large;font-variant:small-caps;padding-top:1.5em}
+   .bigname {font-size:xx-large;font-variant:small-caps;}
    .jobblock {padding-top:0.5em;padding-bottom:1em}
    .jobline {font-weight:bolder}
    .rightalign {text-align:right}
@@ -14,8 +15,13 @@
    hr {border-color:#000000;border-style:solid;border-width:2px 0 0;clear:both;margin:0 0 0px;height:0}
    .jobblock > table, .jobblock > table tr, .jobblock > table td {padding:0px;border:none;border-spacing:0}
    @media print {
-    html, body {height:99%}
+    hhtml, bbody {height:99%}
+    html, body { height:auto;font-size:9pt;}
+    .topheading {font-size:10pt;}
+    .sectionhead {font-size:12pt;}
+    .bigname {font-size:16pt;}
    }
+
   </style>
  </head>
  <body>
@@ -24,7 +30,7 @@
     <table width="100%">
      <tr>
       <td width="33%">500 Clark Avenue<br>St. Louis, MO 63119</td>
-      <td width="34%"><div style="font-size:xx-large;font-variant:small-caps"><center><a href="http://www.linkedin.com/in/alexstangl">Alex Stangl</a></center></div></td>
+      <td width="34%"><div class="bigname"><center><a href="http://www.linkedin.com/in/alexstangl">Alex Stangl</a></center></div></td>
       <td width="33%"><div class="rightalign">314-380-1120<br><a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a></div></td>
      </tr>
     </table>
@@ -82,7 +88,7 @@
     <tr>
      <td width="25%">Consultant</td>
      <td width="50%"><center>S<sup>3</sup>, Detroit, Michigan<br>Client: Monsanto (acquired by Bayer)</center></td>
-     <td width="25%"><div class="rightalign">January&nbsp;2015 - December 2017</div></td>
+     <td width="25%"><div class="rightalign">January&nbsp;2015 - December&nbsp;2017</div></td>
     </tr>
    </table>
    <ul>
@@ -111,8 +117,8 @@
    <ul>
     <li>Developed web apps for <a href="https://web.archive.org/web/20141222180227/http://www.unitedmayflower.com/unitedmayflower/portable-storage-mover?src=sam">container storage/moving business</a>, including batch/billing systems, credit-card processing, related web services</li>
     <li>Developed message bus for Order Information Sharing</li>
-    <li>Developed STM (software transactional memory), giving transactional semantics to Java objects</li>
-    <li>Created race condition detection proxy, synchronized proxy, log interceptors, unit test coverage test, etc.</li>
+    <li>Developed STM (software transactional memory), giving transactional semantics to objects</li>
+    <li>Created race condition detection proxy, synchronized proxy, log interceptors, test coverage test, etc.</li>
     <li>Developed web apps to coordinate personnel, integrate businesses, streamline operations, and more</li>
     <li>Performed code reviews, regular refactorings and other technical debt cleanup, promoted quality development practices, and incorporated good ideas from functional programming</li>
     <li>Used multithreaded Java, JavaScript, jQuery, JSF, PrimeFaces, Backbone.js, Hibernate, Spring, Guava, Atomikos, Eclipse, HornetQ, MQ Series, Camel, PostgreSQL, Maven, JSP, git, EJB, Tomcat, WebSphere, DB2, JUnit, JMeter, FindBugs, Sonar, JProfiler, XSLT, Crucible, Fisheye, ant, Jenkins, LDAP, iText, PlantUML, Jira, Scrum</li>
