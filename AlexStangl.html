@@ -12,14 +12,14 @@
    hr { border-color: #000000; border-style: solid; border-width: 2px 0 0; clear: both; margin: 0; height: 0; }
    
    /* Typography & Headings */
-   .sectionhead { text-align: left; font-size: x-large; font-variant: small-caps; padding-top: 1.2em; margin-bottom: 0.2em; }
+   .sectionhead { text-align: left; font-size: x-large; font-variant: small-caps; padding-top: 2em; margin-bottom: 0.2em; }
    .summary-text { padding-top: 0.5em; margin: 0; }
 
    /* Professional Link Styling */
    a { color: #0256aa; text-decoration: none; transition: color 0.2s ease; }
    a:hover { color: #013468; text-decoration: underline; }
 
-   /* Part 1: Modern Flexbox Header Layout (Replaces your top table) */
+   /* Modern Flexbox Header Layout */
    .resume-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-bottom: 0.5em; }
    .name-center h1 { font-size: xx-large; font-variant: small-caps; margin: 0; text-align: center; }
    .name-center a { color: #000; }
@@ -27,7 +27,7 @@
    .contact-left { text-align: left; font-size: 1rem; }
    .contact-right { text-align: right; font-size: 1rem; }
 
-   /* Modern Job Headers (Replaces your individual job line tables) */
+   /* Modern Job Headers */
    .jobblock { padding-top: 0.5em; padding-bottom: 0.8em; }
    .job-header { display: flex; justify-content: space-between; font-size: 1.05rem; margin-bottom: 0.3em; }
    .job-title-company { font-weight: bold; }
@@ -43,7 +43,7 @@
    @media print {
     @page {
      size: letter;
-     margin: 0.4in;
+     margin: 0.5in;
     }
 
     html, body {
@@ -62,7 +62,7 @@
   
     /* Typography Scale */
     .name-center h1 { font-size: 16pt; }
-    .sectionhead { font-size: 11.5pt; padding-top: 0.8em; page-break-after: avoid; }
+    .sectionhead { font-size: 11.5pt; padding-top: 2em; page-break-after: avoid; }
     hr { page-break-after: avoid; margin-bottom: 0.4em; }
     .job-header { font-size: 10pt; }
   
@@ -81,13 +81,13 @@
   <!-- Modern Flexbox Header Layout -->
   <header class="resume-header">
    <div class="contact-left">
-    500 Clark Avenue<br>St. Louis, MO 63119
+    <a href="tel:+13143801120">314-380-1120</a>
    </div>
    <div class="name-center">
     <h1><a href="http://linkedin.com/in/alexstangl">Alex Stangl</a></h1>
    </div>
    <div class="contact-right">
-    <a href="tel:+13143801120">314-380-1120</a><br><a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a>
+    <a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a>
    </div>
   </header>
 
@@ -95,7 +95,8 @@
   <hr>
   <div>
    <ul>
-    <li>Veteran software engineer with track record of successful software development using a myriad of technologies. Prefer back-end development using functional programming languages, such as Scala, with emphasis on correctness, robustness, and automation. Relish challenging problems, striving for elegant solutions, yet pragmatic about not overengineering</li>
+    <li>Veteran software engineer with track record of successful software development using variety of technologies. Prefer back-end development using functional programming, with emphasis on correctness, robustness, and automation. Relish challenging problems, striving for elegant solutions, yet pragmatic about not overengineering</li>
+    <li>Thoughtful, detailed code review feedback, serving as a form of mentorship, and, lately, of human oversight of AI</li>
     <li>Languages: Scala, TypeScript, AI prompts, Java, JavaScript, Clojure; learning Rust</li>
     <li>B.S. Computer Science, Washington University, St. Louis, Missouri</li>
    </ul>
@@ -105,63 +106,58 @@
   <hr>
   <div class="jobblock">
    <div class="job-header">
-    <span class="job-title-company">Lead Software Engineer &mdash; Disney Streaming, New York, NY (Remote)</span>
-    <span class="job-date">January 2022 - Present</span>
+    <span class="job-title-company">Lead Software Engineer &mdash; Disney Streaming, New York, New York (Remote)</span>
+    <span class="job-date">Jan 2022 - Present</span>
    </div>
    <ul>
-    <li>Develop next-gen offer management, customer service systems, unifying Hulu, Disney apps
+    <li>Saved money by developing unified Hulu/Disney offer management and customer service systems</li>
     <li>Extend help site chatbot to empower customers with self-service capabilities, e.g., cancel/suspend</li>
-    <li>Evaluate/use many AI tools (Claude Code, Cursor, Copilot, Amazon Q, etc.), for code gen/updates, reason about and find bugs, AI PR feedback, etc.</li>
-    <li>Port services to modern CI based on declarative Jenkins build pipeline, Spinnaker pipelines to perform multi-region AWS K8S deploys, and Istio service mesh.</li>
-    <li>Mentor junior developers, gave detailed feedback in code reviews and pairing sessions</li>
-    <li>Use Scala, TypeScript, AI (Claude Code, Cursor, Amazon Q, Bedrock, Opus, Sonnet, many MCPs &amp; skills, etc.), akka, Akka Streams, cats, PostgreSQL, MySQL, AWS (S3, EC2, EMR, Kinesis, DynamoDB, SQS, Route53, etc.), GraphQL, React, http4s, OAuth2, JWT, Datadog, REST, gRPC, IntelliJ, VSCode, GitHub, Swagger/OpenAPI, Spinnaker, Docker, Docker Compose, Kubernetes, Terraform, Istio, Helm, LaunchDarkly, logback, WireMock, localstack, Jenkins, sbt, ScalaMock, WartRemover, shell scripts, Scrum, Jira, PagerDuty</li>
+    <li>Evaluate/use many AI tools (Claude Code, Cursor, Copilot, etc.), for code gen/updates, find bugs, PR comments</li>
+    <li>Port services to modern CI based on declarative Jenkins build, Spinnaker pipelines to perform multi-region AWS K8S deploys, and Istio service mesh.</li>
+    <li>Use Scala, TypeScript, AI (Claude Code, Cursor, Amazon Q, Bedrock, Opus, Sonnet, many MCPs &amp; skills, etc.), akka, Akka Streams, cats, PostgreSQL, MySQL, AWS (S3, EC2, EMR, Kinesis, DynamoDB, SQS, Route53, etc.), GraphQL, React, http4s, OAuth2, JWT, Datadog, REST, gRPC, Swagger/OpenAPI, Spinnaker, Docker, Docker Compose, Kubernetes, Terraform, Istio, Helm, LaunchDarkly, WireMock, localstack, Jenkins, ScalaMock, WartRemover</li>
    </ul>
   </div>
   <div class="jobblock">
    <div class="job-header">
-    <span class="job-title-company">Senior Software Engineer &mdash; Kunai Co., Oakland, California; Client: Capital One Corporation (Remote)</span>
-    <span class="job-date">January 2021 - December 2021</span>
+    <span class="job-title-company">Senior Software Engineer (Contractor)&mdash;Capital One Corp. (via Kunai) (Remote)</span>
+    <span class="job-date">Jan 2021 - Dec 2021</span>
    </div>
    <ul>
     <li>Developed components of Capital One's next generation financial transaction processor, which will handle billions of transactions per year, totaling tens of billions of dollars</li>
-    <li>Mentored junior developers and interns, gave detailed feedback in code reviews and pairing sessions</li>
-    <li>Used Scala, TypeScript, GoLang, ZIO, Monix Task, Monix Observable, akka, cats, Cats Effects, FS2, PostgreSQL, AWS (S3, EC2, EMR, ECS, etc.), Apache Kafka, Cassandra, http4s, Avro, OAuth2, JWT, New Relic, Datadog, Grafana, REST, IntelliJ, VS Code, GitHub Enterprise, Swagger/OpenAPI, Gatling, Docker, Docker Compose, Kubernetes, Splunk, log4j2, WireMock, localstack, Jenkins Pipeline, WartRemover, sbt, Postman, DevOps, Scrum, Jira, PagerDuty</li>
+    <li>Used Scala, TypeScript, GoLang, ZIO, Monix Task, Monix Observable, akka, cats, Cats Effects, FS2, PostgreSQL, AWS (S3, EC2, EMR, ECS, etc.), Apache Kafka, Cassandra, http4s, Avro, OAuth2, JWT, New Relic, Datadog, Grafana, REST, GitHub Enterprise, Swagger/OpenAPI, Gatling, Docker, Docker Compose, Kubernetes, Splunk, log4j2, WireMock, localstack, Jenkins Pipeline, WartRemover, sbt, Postman, DevOps, PagerDuty</li>
    </ul>
   </div>
   <div class="jobblock">
    <div class="job-header">
-    <span class="job-title-company">Senior Consultant &mdash; Net Effects, St. Louis, Missouri; Client: Climate Corporation One (Onsite, then Remote)</span>
-    <span class="job-date">March 2019 - January 2021</span>
+    <span class="job-title-company">Consultant (Contractor)&mdash; Climate Corp. (via Net Effects) (Onsite, then Remote)</span>
+    <span class="job-date">Mar 2019 - Jan 2021</span>
    </div>
    <ul>
     <li>Developed reactive microservices for machine data pipeline, deployed in AWS EC2 and EMR, processing planting, harvest, and application data from tens of millions of acres of farmland worldwide, transforming it into a layered data product, showing crop yield, seed products, etc.</li>
     <li>Revised color contour model used to display soil nutrient levels across fields, taking into account type of lab assay used, and using expanded ranges, resulting in far more useful display detail in most scenarios</li>
-    <li>Mentored junior developers and interns, and gave detailed feedback in code reviews</li>
-    <li>Used Scala, Clojure, Python, Apache Spark, akka, cats, PostgreSQL, AWS (S3, EC2, RDS, EMR, ECS, SSM, SQS, SNS, DynamoDB, etc.), Scalatra, http4s, Avro, OAuth2, JWT, Prometheus, Grafana, REST, IntelliJ, VS Code, Ring, Hystrix, GitLab CI, Swagger/OpenAPI, Gatling, Docker, Docker Compose, New Relic, Splunk, logback, Slick DB, tmux, WireMock, localstack, Jenkins, sbt, Leiningen, shell scripting, GeoTrellis, QGIS, Graphviz, awk, jetty, Liquibase, BitBucket, DevOps, Scrum, Jira</li>
+    <li>Used Scala, Clojure, Python, Apache Spark, akka, cats, PostgreSQL, AWS (S3, EC2, RDS, EMR, ECS, SSM, SQS, SNS, DynamoDB, etc.), Scalatra, http4s, Avro, OAuth2, JWT, Prometheus, Grafana, REST, Ring, Hystrix, GitLab CI, Swagger/OpenAPI, Gatling, Docker, Docker Compose, New Relic, Splunk, logback, Slick DB, tmux, WireMock, localstack, Jenkins, Leiningen, shell scripting, GeoTrellis, QGIS, Graphviz, awk, jetty, Liquibase, BitBucket, DevOps</li>
    </ul>
   </div>
   <div class="jobblock">
    <div class="job-header">
     <span class="job-title-company">Senior Software Engineer&mdash; CiBO Technologies, Inc., St. Louis, Missouri</span>
-    <span class="job-date">January 2018 - February 2019</span>
+    <span class="job-date">Jan 2018 - Feb 2019</span>
    </div>
    <ul>
-    <li>Developed and maintained Scala crop models, MCMC (Markov Chain Monte Carlo) Bayesian inference machine-learning calibration algorithm</li>
-    <li>Developed auto-scaling logic to control size of Kubernetes cluster used for execution of model calibration MCMC machine-learning algorithm, weighing algorithm parallelism on dataset against costs of various AWS EC2 instance types and numbers of cores, saving money by avoiding excess EC2 charges</li>
-    <li>Full stack development, including scalajs-react-based app allowing user to visualize model data in histograms and overlaid on map</li>
-    <li>Use Jenkins Pipeline jobs running in Kubernetes for Continuous Integration</li>
-    <li>Mentored junior developers and interns, and gave detailed feedback in code reviews</li>
-    <li>On Software Quality and infrastructure matrix teams, and worked on automating releases and deploys</li>
-    <li>Used Scala, Scala-JS, machine learning, MCMC, AWS (S3, EC2, ECS, etc.), React, Prometheus/Kamon, Grafana, Leaflet, REST, IntelliJ, sbt, GitHub, OAuth2, Graphviz, Docker, Kubernetes, Monocle (lens/prisms), circe, Jenkins Pipeline, shell scripting, awk, DevOps, Scrum, Jira</li>
+    <li>Developed and maintained Scala crop models, MCMC (Markov Chain Monte Carlo) Bayesian inference machine-learning calibration algorithm, allowing CiBO's Salus plant model parameters to be continually optimized</li>
+    <li>Developed autoscaler to reduce AWS costs by optimizing cluster size used for execution of calibration algorithm, weighing algorithm parallelism on dataset against costs of various AWS EC2 instance types and numbers of cores</li>
+    <li>Full stack development, including ScalaJS/React app for visualizing model data in histograms overlaid on map</li>
+    <li>Improved software quality and automated releases and deploys</li>
+    <li>Used Scala, Scala-JS, machine learning, MCMC, AWS (S3, EC2, ECS, etc.), React, Prometheus/Kamon, Grafana, Leaflet, REST, OAuth2, Graphviz, Docker, Kubernetes, Monocle (lens/prisms), circe, Jenkins Pipeline, shell scripting</li>
    </ul>
   </div>
   <div class="jobblock">
    <div class="job-header">
-    <span class="job-title-company">Consultant&mdash; S<sup>3</sup>, Detroit, Michigan; Client: Monsanto (acquired by Bayer)</span>
-    <span class="job-date">January 2015 - December 2017</span>
+    <span class="job-title-company">Consultant (Contractor) &mdash; Monsanto (acquired by Bayer) (via S<sup>3</sup>)</span>
+    <span class="job-date">Jan 2015 - Dec 2017</span>
    </div>
    <ul>
-    <li>Developed apps and activity workflows for Molecular Breeding Pipeline Optimization. Heavily involved in building the automatic genomics QC sub-workflows, as well as helping architect and refactor overall structure of these workflows. Apps were deployed to CloudFoundry in AWS EC2.
+    <li>Developed apps and activity workflows for Molecular Breeding Pipeline Optimization, improving bottom-line by detecting errors and identifying best breeding candidates. Heavily involved in building the automatic genomics QC sub-workflows, as well as helping architect and refactor overall structure of these workflows.
      <ul>
       <li>Data-driven backbone (built on Amazon SWF) to support workflows</li>
       <li>GWS (genome-wide selection) workflow</li>
@@ -169,10 +165,10 @@
       <li>Process PCR dye intensity files from global labs, converting them into a standardized format and feeding them into workflow that transforms them into probabilistic genotypes for further processing</li>
      </ul>
     </li>
-    <li>Wrote tool to perform static analysis of workflows by analyzing workflow JSONs and using reflection to probe associated codebases, verifying correct type flow between activities, between workflows, and checking for many other problems</li>
+    <li>Wrote tool which saved dozens of hours by analyzing workflow JSONs, probing associated code, verifying correct type flow between activities, between workflows, and checking for many other problems</li>
+    <li>Wrote tool for visualizing workflows, using GraphViz, allowing big flow diagrams to be printed on plotter
     <li>Wrote numerous scripts to save time by automating and simplifying routine tasks</li>
-    <li>Performed code reviews, regular refactorings and other technical debt cleanup</li>
-    <li>Used Scala, Java, JavaScript/ES6, Akka, Spray, AWS (S3, EC2, SWF, RDS, etc.), Kafka, CloudFoundry PaaS, Parquet, React, Slick DB, PostgreSQL, Hadoop HBase, Presto, Prometheus, Grafana, Akana, Vault, REST, Swagger, Graphviz, PlantUML, Splunk, ELK, logback, Postman, IntelliJ, OAuth2, Maven, sbt, GitHub Enterprise, Jetty, Tomcat, Oracle, JUnit, Cucumber, Sonar, Docker, Jenkins, Crucible, shell scripting, awk, DevOps, Scrum, Jira</li>
+    <li>Used Scala, Java, JavaScript/ES6, Akka, Spray, AWS (S3, EC2, SWF, RDS, etc.), Kafka, CloudFoundry, Parquet, React, SlickDB, PostgreSQL, HBase, Presto, Prometheus, Grafana, Akana, Vault, REST, Swagger, Graphviz, PlantUML, Splunk, ELK, Postman, OAuth2, GitHub, Jetty, Tomcat, JUnit, Cucumber, Sonar, Docker, Jenkins</li>
    </ul>
   </div>
 
