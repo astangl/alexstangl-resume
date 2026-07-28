@@ -15,8 +15,6 @@
    .sectionhead { text-align: left; font-size: x-large; padding-top: 3em; margin-bottom: 0.2em; }
    .summary-text { padding-top: 0.5em; margin: 0; }
 
-   /* .summary-block { margin-top: 6pt; margin-bottom: 12pt; } */
-
    /* Optional: Use this if your other job blocks use justified text */
    .summary-block p { margin: 0; text-align: justify; }
 
@@ -28,14 +26,10 @@
    a { color: #2c4f6f; text-decoration: none; }
 
    /* The Header Container becomes a row split across the page */
-   .resume-header {
-     display: flex;
-     justify-content: space-between; /* Pushes name left, contact info right */
-     align-items: flex-end;         /* Aligns their baselines perfectly */
-     margin-bottom: 16pt;
-     border-bottom: 2px solid #1a1a1a; /* Optional: A sharp line to anchor the top section */
-     padding-bottom: 8pt;
-   }
+   /* Pushes name left, contact info right */
+   /* Aligns their baselines perfectly */
+   /* Optional: A sharp line to anchor the top section */
+   .resume-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16pt; border-bottom: 2px solid #1a1a1a; padding-bottom: 8pt; }
 
    /* Candidate Name shifts left */
    .candidate-name {
@@ -167,11 +161,11 @@
       <span class="job-date">Jan 2022 - Jun 2026</span>
      </div>
      <ul>
-      <li>Saved money by developing unified Hulu/Disney offer management and customer service systems</li>
+      <li>Eliminated cross-platform system redundancies and optimized operational costs by engineering unified offer management and customer service systems across Hulu and Disney Streaming ecosystems</li>
       <li>Extended help site chatbot to empower customers with self-service capabilities, e.g., cancel/suspend</li>
       <li>Evaluated/used many AI tools (Claude Code, Cursor, Copilot, etc.), for code gen/updates, find bugs, PR comments</li>
-      <li>Ported apps to CI based on declarative Jenkins, multi-region AWS K8S deploy Spinnaker pipelines, Istio service mesh</li>
-      <li>Used Scala, TypeScript, Java, AI (Claude Code, Cursor, Opus, Sonnet, MCPs, skills, etc.), akka, Akka Streams, cats, Postgres, MySQL, AWS, GraphQL, React, http4s, OAuth2, JWT, Datadog, REST, gRPC, Swagger/OpenAPI, Docker, Docker Compose, Kubernetes, Terraform, Istio, Helm, LaunchDarkly, WireMock, localstack, ScalaMock</li>
+      <li>Ported apps to CI using declarative Jenkins, multi-region AWS K8S deploy Spinnaker pipelines, Istio service mesh</li>
+      <li><strong>Tech Stack:</strong> Scala, TypeScript, Java, Akka, ZIO, cats, React, NodeJS; <strong>AI Workflows:</strong> Claude Code, Cursor, MCPs; <strong>Infrastructure:</strong> AWS, K8s, Istio, Spinnaker, DataDog, LaunchDarkly; <strong>Data:</strong> Postgres, MySQL, GraphQL</li>
      </ul>
     </div>
    </section>
@@ -195,7 +189,7 @@
      </div>
      <ul>
       <li>Developed reactive microservices for machine data pipeline, deployed in AWS EC2 and EMR, processing planting, harvest, and application data from tens of millions of acres of farmland worldwide, transforming it into a layered data product, showing crop yield, seed products, etc.</li>
-      <li>Helped farmers better visualize field health by improving color contour model used to display soil nutrient levels, taking into account type of lab assay used, and using expanded ranges, resulting in far more useful display</li>
+      <li>Enhanced predictive field-health visualizations for tens of millions of acres worldwide by architecting an advanced color contour model factoring in distinct lab assay variables</li>
       <li>Used Scala, Clojure, Java, Python, Spark, akka, cats, Postgres, AWS, Avro, OAuth2, JWT, Prometheus, Grafana, REST, Hystrix, OpenAPI, Gatling, Docker Compose, New Relic, Splunk, WireMock, localstack, GeoTrellis, QGIS</li>
      </ul>
     </div>
