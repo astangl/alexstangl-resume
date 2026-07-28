@@ -12,19 +12,50 @@
    hr { border-color: #000000; border-style: solid; border-width: 2px 0 0; clear: both; margin: 0; height: 0; }
    
    /* Typography & Headings */
-   .sectionhead { text-align: left; font-size: x-large; font-variant: small-caps; padding-top: 3em; margin-bottom: 0.2em; }
+   .sectionhead { text-align: left; font-size: x-large; padding-top: 3em; margin-bottom: 0.2em; }
    .summary-text { padding-top: 0.5em; margin: 0; }
 
    a { color: #2c4f6f; text-decoration: none; }
 
+   /* The Header Container becomes a row split across the page */
+   .resume-header {
+     display: flex;
+     justify-content: space-between; /* Pushes name left, contact info right */
+     align-items: flex-end;         /* Aligns their baselines perfectly */
+     margin-bottom: 16pt;
+     border-bottom: 2px solid #1a1a1a; /* Optional: A sharp line to anchor the top section */
+     padding-bottom: 8pt;
+   }
 
-   /* Modern Flexbox Header Layout */
-   .resume-header { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-bottom: 0.5em; }
-   .name-center h1 { font-size: xx-large; font-variant: small-caps; margin: 0; text-align: center; }
-   .name-center a { color: #000; }
-   .name-center a:hover { text-decoration: none; }
-   .contact-left { text-align: left; font-size: 1rem; }
-   .contact-right { text-align: right; font-size: 1rem; }
+   /* Candidate Name shifts left */
+   .candidate-name {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 24pt;
+     font-weight: 700;
+     color: #1a1a1a;
+     margin: 0;
+     padding: 0;
+     line-height: 1;
+   }
+
+   /* Contact Info shifts right and stacks cleanly */
+   .contact-info {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt; /* Slightly smaller to fit the right-hand side beautifully */
+    color: #4a5568;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Aligns the text blocks to the right edge */
+    gap: 10px;
+    max-width: 65%; /* Prevents text from crowding your name on smaller viewports */
+   }
+
+   /* Keep your bullet styling exactly the same */
+   .contact-info span:not(:last-child)::after,
+   .contact-info a:not(:last-child)::after { content: "•"; margin-left: 10px; color: #a0aec0; pointer-events: none; }
+   .contact-info a { color: #2b6cb0; text-decoration: none; }
+   .contact-info a:hover { text-decoration: underline; }
+
 
    /* Modern Job Headers */
    .jobblock { padding-top: 0.5em; padding-bottom: 1em; }
@@ -56,11 +87,12 @@
     a { color: #000; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
   
     /* Typography Scale */
-    .name-center h1 { font-size: 16pt; }
     .sectionhead { font-size: 11.5pt; padding-top: 3em; page-break-after: avoid; }
     hr { page-break-after: avoid; margin-bottom: 0.4em; }
     .job-header { font-size: 10pt; }
   
+    /* Flattens link colors to dark text for physical print clarity */
+    .contact-info a { color: #1a1a1a; }
     /* Content Safety Boundaries */
     .jobblock { page-break-inside: avoid; }
     .grid-table { page-break-inside: avoid; row-gap: 0.2em; }
@@ -73,16 +105,14 @@
  </head>
  <body>
 
-  <!-- Modern Flexbox Header Layout -->
   <header class="resume-header">
-   <div class="contact-left">
+   <h1 class="candidate-name">Alex Stangl</h1>
+   <div class="contact-info">
+    <span>St. Louis, MO</span>
     <a href="tel:+13143801120">314-380-1120</a>
-   </div>
-   <div class="name-center">
-    <h1><a href="https://www.linkedin.com/in/alexstangl/">Alex Stangl</a></h1>
-   </div>
-   <div class="contact-right">
     <a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a>
+    <a href="https://www.linkedin.com/in/alexstangl/" target="_blank">linkedin.com/in/alexstangl</a>
+    <a href="https://github.com/astangl" target="_blank">github.com/astangl</a>
    </div>
   </header>
 
@@ -93,11 +123,10 @@
     <li>Senior backend engineer with deep experience in distributed systems, Scala, Java, cloud infrastructure, and developer tooling. Strong background in functional programming, CI/CD modernization, and scalable services</li>
     <li>Thoughtful, detailed code review feedback, serving as a form of mentorship, and, lately, oversight of AI</li>
     <li>Languages: Scala, TypeScript, Java, AI prompts, JavaScript, Clojure; brushing up on Golang, Rust</li>
-    <li>B.S. Computer Science, Washington University, St. Louis, Missouri</li>
    </ul>
   </div>
 
-  <div class="sectionhead">Professional Experience</div>
+  <div class="sectionhead">Experience</div>
   <hr>
   <div class="jobblock">
    <div class="job-header">
@@ -180,10 +209,16 @@
    </div>
   </div>
 
+  <div class="sectionhead">Education</div>
+  <hr>
+  <div>B.S. in Computer Science - Washington University, St. Louis, Missouri</div>
+
   <div class="sectionhead">Personal Projects</div>
   <hr>
   <div>
    <ul>
+    <li><a href="https://github.com/astangl/get-android-wifi-passwords">get-android-wifi-passwords</a>, I found no solution for copying WiFi credentials to new phone, so wrote my own</li>
+    <li><a href="https://github.com/astangl/gift-swap-picker">gift-swap-picker</a> (Haskell), gift swap picker, used for many years' sibling/inlaw Christmas gift swap matching</li>
     <li><a href="https://wireless2.fcc.gov/UlsApp/letterPdf/LetterPdfController?licId=5112336&letterVersionId=159&autoLetterId=0&letterCode=AZ&radioServiceCode=HA&op=LetterPdf&licSide=Y&letterTo=L%20%20%20%20&archive=null">AF0CP</a>, Extra class amateur radio license</li>
     <li><a href="https://github.com/astangl/crostex">crostex</a>, crossword compiler written in Java</li>
     <li><a href="https://github.com/astangl/xroz">xroz</a>, JavaScript app to play crossword puzzles in HTML5 browsers</li>
