@@ -6,13 +6,14 @@
   <style type="text/css">
    /* Baseline Resets */
    html { text-size-adjust: none; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; -ms-text-size-adjust: none; }
-   body { padding: 0.5in; font-family: sans-serif; background-color: #fff; color: #000; line-height: 1.4; }
+   body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; padding: 0.5in; font-family: sans-serif; background-color: #fff; color: #000; line-height: 1.4; }
+
    ul { list-style-position: outside; padding-left: 2em; margin-top: 0.4em; margin-bottom: 0.4em; }
    li { margin-bottom: 0.2em; }
    hr { border-color: #000000; border-style: solid; border-width: 2px 0 0; clear: both; margin: 0; height: 0; }
    
    /* Typography & Headings */
-   .sectionhead { text-align: left; font-size: x-large; padding-top: 3em; margin-bottom: 0.2em; }
+   .sectionhead { text-align: left; font-size: x-large; padding-top: 3em; margin-bottom: 0.2em; font-weight: normal; }
    .summary-text { padding-top: 0.5em; margin: 0; }
 
    /* Optional: Use this if your other job blocks use justified text */
@@ -72,16 +73,183 @@
 
    .skills-block p { margin: 0 0 2pt 0; }
 
-   /* Modern Job Headers */
-   .jobblock { padding-top: 0.5em; padding-bottom: 1em; }
-   .job-header { display: flex; justify-content: space-between; font-size: 1.05rem; margin-bottom: 0.3em; }
-   .job-title-company { font-weight: bold; }
-   .job-date { font-weight: bold; white-space: nowrap; }
-   
+   /* Work Experience Layout rules */
+   .job-block { margin-bottom: 1.2rem; page-break-inside: avoid; break-inside: avoid; }
+   .job-date { font-size: 0.95rem; font-style: italic; color: #555; }
+
+   /* Bullet adjustments for high density */
+   .job-block ul { margin: 0; padding-left: 1.2rem; line-height: 1.35; }
+   .job-block li { margin-bottom: 0.25rem; }
+   .job-block li:last-child { margin-bottom: 0; }
+
+   /* Matches your exact baseline text scale */
+   .job-meta-container { font-size: 1.05rem; font-weight: bold; margin: 0; }
+
+   .job-title { font-weight: bold; font-size: inherit; }
+
+   /* Generate a clean, 1px thick vertical line immediately after the title string */
+   /*.job-title::after { content: ""; display: inline-block; vertical-align: middle; width: 1px; height: 0.85rem; background-color: #777; margin-left: 0.6rem; margin-right: 0.15rem; } */
+
+/* Connects the printable 1px border directly to your functional class hooks */
+.job-title::after, .degree-title::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  
+  /* Swapping to a text border ensures Firefox never strips it on print */
+  border-left: 1px solid #777; 
+  height: 0.85rem;
+  
+  /* Preserves your perfect asymmetrical spacing math */
+  margin-left: 0.6rem;
+  margin-right: 0.15rem; 
+}
+
+   .company-name { font-weight: normal; font-size: inherit; }
+
+   /* Remove the old border-right rule entirely from .job-title */
+   .job-title { font-weight: bold; margin-right: 0.5rem; }
+
+   .job-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.15rem; }
+
+
    /* Dynamic 3-Column Content Grid */
    .grid-scroll-container { width: 100%; overflow-x: auto; margin-top: 0.75em; }
    .grid-table { display: grid; grid-template-columns: max-content max-content max-content; width: 100%; justify-content: space-between; row-gap: 0.4em; }
    .cell { white-space: nowrap; text-align: left; }
+
+/* Projects & Education Layout */
+.project-block, .education-block {
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+  break-inside: avoid; /* Prevents Firefox from slicing an element onto page 3 */
+}
+
+.project-block:last-child, .education-block:last-child {
+  margin-bottom: 0;
+}
+
+.project-header, .education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.15rem;
+}
+
+.project-title-container, .education-title-container {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Reuses your perfect asymmetrical vertical line for the Education block */
+.degree-title {
+  font-weight: bold;
+  font-size: inherit;
+}
+
+.degree-title::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 1px;
+  height: 0.85rem;
+  background-color: #777;
+  margin-left: 0.6rem;
+  margin-right: 0.15rem;
+}
+
+.university-name {
+  font-weight: normal;
+  font-size: inherit;
+}
+
+.project-name {
+  font-weight: bold;
+  font-size: inherit;
+}
+
+.project-links a, .education-date {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Bullet list alignments */
+.project-block ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.35;
+}
+
+
+/* Custom spacing balance specifically for the Education block characters */
+.degree-title::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 1px;
+  height: 0.85rem;
+  background-color: #777;
+  
+  /* The Balance: Tighten the left side slightly to fight the 'e' font gap, 
+     and give the right side more breathing room against the 'W' */
+  margin-left: 0.4rem;
+  margin-right: 0.35rem; 
+}
+
+
+/* Clean Horizontal Row Grid */
+.project-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.project-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.project-left-side {
+  display: flex;
+  align-items: baseline;
+}
+
+/* 100% Bold Control for the Name */
+.project-name {
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+/* Draws your exact vertical bar using a printable text border */
+.project-name::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 1px solid #777; /* Standardized thin line that Firefox won't strip */
+  height: 0.85rem;
+  
+  /* Symmetrical spacing math specifically for the project row characters */
+  margin-left: 0.55rem;
+  margin-right: 0.55rem;
+}
+
+/* 100% Normal Weight Control for the Description */
+.project-description {
+  font-weight: normal; /* Forces the description text to be clean and readable */
+  color: #111;
+  /* No hardcoded pt sizes here! It inherits your doc's natural fluid screen scale */
+}
+
+.project-link {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+  text-decoration: none;
+}
+
+
 
    /* Part 2: 2-Page Print Lock Optimization */
 
@@ -94,6 +262,7 @@
     html, body {
      height: auto;
      font-size: 9.5pt;
+     line-height: 1.3;
      padding: 0;
      background: #fff;
      color: #000;
@@ -116,6 +285,11 @@
     /* Tightening layout vertical rhythm */
     ul { margin-top: 0.2em; margin-bottom: 0.2em; }
 
+  h2.sectionhead {
+    font-size: 14pt; 
+    padding-top: 1.5rem; /* Safely tightens the screen space for the physical paper */
+    margin-bottom: 0.25rem;
+  }
   </style>
  </head>
  <body>
@@ -132,7 +306,7 @@
   </header>
 
   <section class="resume-block" aria-labelledby="summary-heading">
-   <div id="summary-heading" class="sectionhead">Summary</div>
+   <h2 id="summary-heading" class="sectionhead">Summary</h2>
    <hr>
    <div class="summary-block">
     <p>
@@ -142,94 +316,91 @@
   </section>
 
   <section class="resume-block" aria-labelledby="skills-heading">
-   <div id="skills-heading" class="sectionhead">Technical Skills</div>
+   <h2 id="skills-heading" class="sectionhead">Technical Skills</h2>
    <hr>
    <div class="skills-block">
-    <p><strong>Languages:</strong> Scala, TypeScript, Java, JavaScript, Clojure, Go (Familiar), Python (Familiar), Rust (Familiar)</p>
-    <p><strong>Tools &amp; Infrastructure:</strong> Kubernetes, AWS, Docker, Akka, Cats, ZIO, REST, GraphQL, Postgres, MySQL, TerraForm, CI/CD</p>
+    <p><strong>Languages:</strong> Scala (Expert), Java (Fluent), TypeScript, Clojure, Go, Python, JavaScript, Haskell (Learning), Rust (Learning)</p>
+    <p><strong>Backend / Functional:</strong> ZIO, Akka, Cats, Cats Effect, FS2, Node.js, React, Spray, http4s</p>
+    <p><strong>Cloud / Infrastructure:</strong> AWS (Compute, Serverless, Data), Kubernetes, Docker, Terraform, Istio, CloudFoundry</p>
+    <p><strong>Data / Messaging / API:</strong> Postgres, MySQL, Kafka, Cassandra, GraphQL, REST, gRPC, Avro, Parquet</p>
+    <p><strong>Observability / CI-CD:</strong> Jenkins, Spinnaker, Datadog, Grafana, Prometheus, Splunk, New Relic</p>
    </div>
   </section>
 
-  <div class="experience-container" role="region" aria-label="Experience">
-   <div class="sectionhead">Experience</div>
+  <section id="experience">
+   <h2 class="sectionhead">Experience</h2>
    <hr>
 
-   <section class="job-entry" aria-labelledby="job-title-1">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company" id="job-title-1">Lead Software Engineer, Disney Streaming, New York, New York (Remote)</span>
-      <span class="job-date">Jan 2022 - Jun 2026</span>
-     </div>
-     <ul>
-      <li>Eliminated cross-platform system redundancies and optimized operational costs by engineering unified offer management and customer service systems across Hulu and Disney Streaming ecosystems</li>
-      <li>Extended help site chatbot to empower customers with self-service capabilities, e.g., cancel/suspend</li>
-      <li>Evaluated/used many AI tools (Claude Code, Cursor, Copilot, etc.), for code gen/updates, find bugs, PR comments</li>
-      <li>Ported apps to CI using declarative Jenkins, multi-region AWS K8S deploy Spinnaker pipelines, Istio service mesh</li>
-      <li><strong>Tech Stack:</strong> Scala, TypeScript, Java, Akka, ZIO, cats, React, NodeJS; <strong>AI Workflows:</strong> Claude Code, Cursor, MCPs; <strong>Infrastructure:</strong> AWS, K8s, Istio, Spinnaker, DataDog, LaunchDarkly; <strong>Data:</strong> Postgres, MySQL, GraphQL</li>
-     </ul>
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Lead Software Engineer</span><span class="company-name">Disney Streaming</span></h3>
+     <span class="job-date">Jan 2022 – Jun 2026</span>
     </div>
-   </section>
-   <section class="job-entry" aria-labelledby="job-title-2">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company" id="job-title-2">Senior Software Engineer (Contractor), Capital One Corp. (via Kunai) (Remote)</span>
-      <span class="job-date">Jan 2021 - Dec 2021</span>
-     </div>
-     <ul>
-      <li>Developed components of Capital One's next generation financial transaction processor, which will handle billions of transactions per year, totaling tens of billions of dollars</li>
-      <li>Used Scala, TypeScript, GoLang, ZIO, Monix Task, Monix Observable, akka, cats, Cats Effects, FS2, Postgres, AWS, Kafka, Cassandra, http4s, Avro, OAuth2, JWT, New Relic, Datadog, Grafana, REST, Swagger/OpenAPI, Gatling, Docker, Docker Compose, Kubernetes, Splunk, WireMock, localstack, Jenkins, WartRemover, Postman</li>
-     </ul>
+
+    <ul>
+     <li>Engineered backend features and batch processing modules using <strong>Scala</strong>, <strong>Akka</strong>, <strong>ZIO</strong>, Postgres, and GraphQL, later transitioning to build and maintain the replacement <strong>TypeScript</strong> BFF service layer running in <strong>Node.js</strong></li>
+     <li>Automated critical customer self-service actions by extending the help site chatbot and internal support application (Baymax) using <strong>TypeScript</strong> and <strong>Node.js/Next.js</strong>, and integrating with <strong>Salesforce</strong></li>
+     <li>Modernized cloud infrastructure by porting application repositories to declarative Jenkins and configuring multi-region AWS Kubernetes (EKS) deployment pipelines via Spinnaker and <strong>Istio</strong></li>
+     <li>Evaluated and leveraged generative AI tools (Claude Code, Cursor, MCPs) to optimize personal engineering velocity, using automated workflows for code generation, bug detection, and draft PR reviews</li>
+    </ul>
+   </article>
+
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Senior Software Engineer (Contractor)</span><span class="company-name">Capital One</span></h3>
+     <span class="job-date">Jan 2021 – Dec 2021</span>
     </div>
-   </section>
-   <section class="job-entry" aria-labelledby="job-title-3">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company" id="job-title-3">Consultant (Contractor), Climate Corp. (via Net Effects) (Onsite, then Remote)</span>
-      <span class="job-date">Mar 2019 - Jan 2021</span>
-     </div>
-     <ul>
-      <li>Developed reactive microservices for machine data pipeline, deployed in AWS EC2 and EMR, processing planting, harvest, and application data from tens of millions of acres of farmland worldwide, transforming it into a layered data product, showing crop yield, seed products, etc.</li>
-      <li>Enhanced predictive field-health visualizations for tens of millions of acres worldwide by architecting an advanced color contour model factoring in distinct lab assay variables</li>
-      <li>Used Scala, Clojure, Java, Python, Spark, akka, cats, Postgres, AWS, Avro, OAuth2, JWT, Prometheus, Grafana, REST, Hystrix, OpenAPI, Gatling, Docker Compose, New Relic, Splunk, WireMock, localstack, GeoTrellis, QGIS</li>
-     </ul>
+    <ul>
+     <li>Engineered core <strong>ZIO</strong> and <strong>Kafka</strong> components for Prometheus, Capital One's next-generation financial processor designed to handle billions of high-throughput transactions</li>
+     <li>Developed data conversion modules using <strong>Go</strong> and <strong>TypeScript</strong> prior to transitioning to the core platform team</li>
+    </ul>
+   </article>
+
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Consultant (Contractor)</span><span class="company-name">Climate Corp.</span></h3>
+     <span class="job-date">Mar 2019 – Jan 2021</span>
     </div>
-   </section>
-   <section class="job-entry" aria-labelledby="job-title-4">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company" id="job-title-4">Senior Software Engineer, CiBO Technologies, Inc., St. Louis, Missouri</span>
-      <span class="job-date">Jan 2018 - Feb 2019</span>
-     </div>
-     <ul>
-      <li>Developed and maintained crop models and MCMC (Markov Chain Monte Carlo) Bayesian inference machine-learning calibration algorithm, allowing CiBO's Salus plant model parameters to be continually optimized</li>
-      <li>Reduced AWS costs by developing autoscaler to optimize cluster size used for execution of calibration algorithm, weighing algorithm parallelism on dataset against costs of various AWS EC2 instance types and numbers of cores</li>
-      <li>Full stack development, including ScalaJS/React app for visualizing model data in histograms overlaid on map</li>
-      <li>Improved software quality and automated releases and deploys</li>
-      <li>Used Scala, ScalaJS, machine learning, AWS, React, Prometheus/Kamon, Grafana, Leaflet, OAuth2, Docker, K8s</li>
-     </ul>
+    <ul>
+     <li>Developed reactive microservices and big data pipelines using <strong>Scala</strong>, <strong>Spark</strong>, <strong>Clojure</strong>, <strong>Java</strong>, and GeoTrellis across distributed AWS EC2/EMR clusters to process global planting, harvest, and agricultural data streams</li>
+     <li>Enhanced predictive field-health visualizations across tens of millions of acres by architecting an advanced color contour model in <strong>Scala</strong> that factored in distinct lab assay variables</li>
+     <li>Architected resilient service layers integrated with Akka, Postgres, and Avro, utilizing Hystrix circuit breakers and conducting high-load performance testing via Gatling</li>
+    </ul>
+   </article>
+
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Senior Software Engineer</span><span class="company-name">CiBO Technologies, Inc.</span></h3>
+     <span class="job-date">Jan 2018 – Feb 2019</span>
     </div>
-   </section>
-   <section class="job-entry" aria-labelledby="job-title-5">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company" id="job-title-5">Consultant (Contractor), Monsanto (acquired by Bayer) (via S<sup>3</sup>)</span>
-      <span class="job-date">Jan 2015 - Dec 2017</span>
-     </div>
-     <ul>
-      <li>Improved breeding program efficiency by developing workflows to detect errors and identify best breeding candidates. With backbone built on Amazon SWF, built genome-wide selection and marker-assisted selection workflows. Wrote app to convert PCR data and feed it into workflow to transform it into probabilistic genotypes</li>
-      <li>Wrote tool which saved hundreds of hours by analyzing workflow JSONs, probing associated code, verifying correct type flow between activities, between workflows, and checking for many other problems</li>
-      <li>Improved workflow visualization by writing workflow diagramming tool, utilizing GraphViz</li>
-      <li>Saved countless hours via numerous scripts automating and simplifying routine tasks, shared across company</li>
-      <li>Used Scala, Java, JavaScript, Akka, Spray, AWS, Kafka, CloudFoundry, Parquet, React, Postgres, HBase, Presto, Prometheus, Grafana, Akana, Vault, REST, Swagger, Splunk, ELK, OAuth2, Cucumber, Sonar, Docker</li>
-     </ul>
+    <ul>
+      <li>Maintained mechanistic crop models and optimized an existing MCMC Bayesian calibration algorithm in <strong>Scala</strong> to continually tune model parameters</li>
+      <li>Reduced cloud operational expenses by developing an AWS infrastructure autoscaler that dynamically sized EC2 compute pools based on algorithmic parallelism constraints and core counts</li>
+      <li>Engineered front-end map components using <strong>ScalaJS</strong> and React integrated with Leaflet to visualize model data in histograms overlaid on a map</li>
+    </ul>
+   </article>
+
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Consultant (Contractor)</span><span class="company-name">Monsanto</span></h3>
+     <span class="job-date">Jan 2015 – Dec 2017</span>
     </div>
-   </section>
-   <section class="job-entry" aria-labelledby="job-title-6">
-    <div class="jobblock">
-     <div class="job-header">
-      <span class="job-title-company">Technical Reviewer, O'Reilly Media</span>
-      <span class="job-date">2012 - 2014</span>
-     </div>
+    <ul>
+     <li>Architected genome-wide and marker-assisted selection pipelines on Amazon SWF, and wrote applications to convert PCR data into probabilistic genotypes that fed directly into breeding candidate <strong>Scala</strong>, <strong>Java</strong> workflows</li>
+     <li>Engineered a static analysis validation tool that parsed complex workflow JSONs to perform automated type-checking and interface validation between asynchronous distributed activities</li>
+     <li>Improved pipeline observability by developing a custom workflow diagramming and visualization tool powered by the Graphviz engine</li>
+     <li>Created and distributed a centralized suite of internal automation tooling, standardizing routine operations like CloudFoundry credential management and log extraction tasks across teams</li>
+    </ul>
+   </article>
+
+   <article class="job-block">
+    <div class="job-header">
+     <h3 class="job-meta-container"><span class="job-title">Technical Book Reviewer</span><span class="company-name">O'Reilly Media</span></h3>
+     <span class="job-date">2012 – 2014</span>
+    </div>
+    <ul>
+     <li>Evaluated technical accuracy and code examples for published industry titles including</li>
+    </ul>
      <div class="grid-scroll-container">
       <div class="grid-table">
        <div class="cell"><a href="http://shop.oreilly.com/product/0636920025481.do">Understanding Computation</a></div>
@@ -243,32 +414,83 @@
        <div class="cell"><a href="http://shop.oreilly.com/product/0636920032663.do">and</a> <a href="http://shop.oreilly.com/product/0636920030690.do">others</a></div>
       </div>
      </div>
-    </div>
-   </section>
-  </div>
+   </article>
+  </section>
 
   <section class="resume-block" aria-labelledby="education-heading">
-   <div class="sectionhead" id="education-heading">Education</div>
+   <h2 class="sectionhead" id="education-heading">Education</h2>
    <hr>
    <div class="education-content">
-    <p>B.S. in Computer Science, Washington University, St. Louis, Missouri</p>
+    <h3 class="education-title-container"><span class="degree-title">B.S. in Computer Science</span><span class="university-name">Washington University in St. Louis</span></h3>
    </div>
   </section>
 
-  <div class="sectionhead">Personal Projects</div>
-  <hr>
-  <div>
-   <ul>
-    <li><a href="https://github.com/astangl/get-android-wifi-passwords">get-android-wifi-passwords</a>, I found no solution for copying WiFi credentials to new phone, so wrote my own</li>
-    <li><a href="https://github.com/astangl/gift-swap-picker">gift-swap-picker</a> (Haskell), gift swap picker, used for many years' sibling/inlaw Christmas gift swap matching</li>
-    <li><a href="https://wireless2.fcc.gov/UlsApp/letterPdf/LetterPdfController?licId=5112336&letterVersionId=159&autoLetterId=0&letterCode=AZ&radioServiceCode=HA&op=LetterPdf&licSide=Y&letterTo=L%20%20%20%20&archive=null">AF0CP</a>, Extra class amateur radio license</li>
-    <li><a href="https://github.com/astangl/crostex">crostex</a>, crossword compiler written in Java</li>
-    <li><a href="https://github.com/astangl/xroz">xroz</a>, JavaScript app to play crossword puzzles in HTML5 browsers</li>
-    <li>Solved all 156 Clojure problems at <a href="https://web.archive.org/web/20200709111749/http://www.4clojure.com/user/astangl">4clojure.com (archived)</a></li>
-    <li><a href="https://github.com/astangl/uriparser-hs">uriparser-hs</a>, RFC3986 compliant URI parser written in Haskell, with tests</li>
-    <li><a href="https://github.com/astangl/list-index">list-index</a>, index allowing fast random access to infinite Haskell lists</li>
-    <li><a href="https://github.com/astangl/haskell-vendingmachine">vending machine simulation written in Haskell</a> (used for <a href="http://stllambdalounge.files.wordpress.com/2008/12/lambdaloungehaskellpresentation20090604.pdf">presentation</a>, <a href="http://groups.google.com/group/lambda-lounge/msg/3dd214c232da1660">followup</a>)</li>
-   </ul>
-  </div>
+  <section id="projects" aria-labelledby="projects-heading">
+   <h2 id="projects-heading" class="sectionhead">Projects &amp; Achievements</h2>
+   <hr>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">get-android-wifi-passwords</span>
+     <span class="project-description">extract WiFi passwords from an unrooted Android phone</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/get-android-wifi-passwords">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">gift-swap-picker</span>
+     <span class="project-description">Holiday gift exchange assignment utility written in Haskell with pairing constraint logic</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/gift-swap-picker">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">uriparser-hs</span>
+     <span class="project-description">RFC 3986-compliant URI parsing library written in pure Haskell</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/uriparser-hs">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">list-index</span>
+     <span class="project-description">index allowing fast random access to "infinite" Haskell lists</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/list-index">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">vendingmachine</span>
+     <span class="project-description">vending machine simulation written in Haskell, used for Lambda Lounge presentation</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/haskell-vendingmachine">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">crostex</span>
+     <span class="project-description">Crossword compiler that runs in Java 6+ with no external dependencies</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/crostex">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">xroz</span>
+     <span class="project-description">JavaScript app to play crossword puzzles in HTML5 browsers</span>
+    </div>
+    <a class="project-link" href="https://github.com/astangl/xroz">GitHub</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">AF0CP</span>
+     <span class="project-description">Extra (highest) class amateur radio license</span>
+    </div>
+    <a class="project-link" href="https://wireless2.fcc.gov/UlsApp/letterPdf/LetterPdfController?licId=5112336&letterVersionId=159&autoLetterId=0&letterCode=AZ&radioServiceCode=HA&op=LetterPdf&licSide=Y&letterTo=L%20%20%20%20&archive=null">License</a>
+   </div>
+   <div class="project-row">
+    <div class="project-left-side">
+     <span class="project-name">4Clojure</span>
+     <span class="project-description">Solved all 156 Clojure problems at 4Clojure (now defunct)</span>
+    </div>
+    <a class="project-link" href="https://web.archive.org/web/20200709111749/http://www.4clojure.com/user/astangl">Archive</a>
+   </div>
+  </section>
  </body>
 </html>
