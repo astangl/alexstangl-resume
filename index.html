@@ -56,9 +56,7 @@
    }
 
    /* Keep your bullet styling exactly the same */
-   .contact-info span:not(:last-child)::after,
-   .contact-info a:not(:last-child)::after { content: "•"; margin-left: 10px; color: #a0aec0; pointer-events: none; }
-   .contact-info a { color: #2b6cb0; text-decoration: none; }
+   .contact-info span:not(:last-child)::after { content: "•"; margin-left: 10px; color: #a0aec0; pointer-events: none; }
    .contact-info a:hover { text-decoration: underline; }
 
    .skills-block { margin-top: 6pt; margin-bottom: 12pt; }
@@ -87,23 +85,20 @@
 
    .job-title { font-weight: bold; font-size: inherit; }
 
-   /* Generate a clean, 1px thick vertical line immediately after the title string */
-   /*.job-title::after { content: ""; display: inline-block; vertical-align: middle; width: 1px; height: 0.85rem; background-color: #777; margin-left: 0.6rem; margin-right: 0.15rem; } */
-
-/* Connects the printable 1px border directly to your functional class hooks */
-.job-title::after, .degree-title::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  
-  /* Swapping to a text border ensures Firefox never strips it on print */
-  border-left: 1px solid #777; 
-  height: 0.85rem;
-  
-  /* Preserves your perfect asymmetrical spacing math */
-  margin-left: 0.6rem;
-  margin-right: 0.15rem; 
-}
+   /* Connects the printable 1px border directly to your functional class hooks */
+   .job-title::after, .degree-title::after {
+     content: "";
+     display: inline-block;
+     vertical-align: middle;
+     
+     /* Swapping to a text border ensures Firefox never strips it on print */
+     border-left: 1px solid #777; 
+     height: 0.85rem;
+     
+     /* Preserves your perfect asymmetrical spacing math */
+     margin-left: 0.6rem;
+     margin-right: 0.15rem; 
+   }
 
    .company-name { font-weight: normal; font-size: inherit; }
 
@@ -118,136 +113,139 @@
    .grid-table { display: grid; grid-template-columns: max-content max-content max-content; width: 100%; justify-content: space-between; row-gap: 0.4em; }
    .cell { white-space: nowrap; text-align: left; }
 
-/* Projects & Education Layout */
-.project-block, .education-block {
-  margin-bottom: 1rem;
-  page-break-inside: avoid;
-  break-inside: avoid; /* Prevents Firefox from slicing an element onto page 3 */
-}
+   /* Projects & Education Layout */
+   .project-block, .education-block {
+     margin-bottom: 1rem;
+     page-break-inside: avoid;
+     break-inside: avoid; /* Prevents Firefox from slicing an element onto page 3 */
+   }
+   
+   .project-block:last-child, .education-block:last-child {
+     margin-bottom: 0;
+   }
+   
+   .project-header, .education-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: baseline;
+     margin-bottom: 0.15rem;
+   }
+   
+   .project-title-container, .education-title-container {
+     font-size: 1.05rem;
+     font-weight: bold;
+     margin: 0;
+   }
+   
+   /* Reuses your perfect asymmetrical vertical line for the Education block */
+   .degree-title {
+     font-weight: bold;
+     font-size: inherit;
+   }
+   
+   .degree-title::after {
+     content: "";
+     display: inline-block;
+     vertical-align: middle;
+     width: 1px;
+     height: 0.85rem;
+     background-color: #777;
+     margin-left: 0.6rem;
+     margin-right: 0.15rem;
+   }
+   
+   .university-name {
+     font-weight: normal;
+     font-size: inherit;
+   }
+   
+   .project-name {
+     font-weight: bold;
+     font-size: inherit;
+   }
+   
+   .project-links a {
+     font-size: 0.95rem;
+     font-style: italic;
+   }
+   
+   .education-date {
+     font-size: 0.95rem;
+     font-style: italic;
+     color: #555;
+   }
 
-.project-block:last-child, .education-block:last-child {
-  margin-bottom: 0;
-}
-
-.project-header, .education-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.15rem;
-}
-
-.project-title-container, .education-title-container {
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-/* Reuses your perfect asymmetrical vertical line for the Education block */
-.degree-title {
-  font-weight: bold;
-  font-size: inherit;
-}
-
-.degree-title::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 1px;
-  height: 0.85rem;
-  background-color: #777;
-  margin-left: 0.6rem;
-  margin-right: 0.15rem;
-}
-
-.university-name {
-  font-weight: normal;
-  font-size: inherit;
-}
-
-.project-name {
-  font-weight: bold;
-  font-size: inherit;
-}
-
-.project-links a, .education-date {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #555;
-}
-
-/* Bullet list alignments */
-.project-block ul {
-  margin: 0;
-  padding-left: 1.2rem;
-  line-height: 1.35;
-}
-
-
-/* Custom spacing balance specifically for the Education block characters */
-.degree-title::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 1px;
-  height: 0.85rem;
-  background-color: #777;
-  
-  /* The Balance: Tighten the left side slightly to fight the 'e' font gap, 
-     and give the right side more breathing room against the 'W' */
-  margin-left: 0.4rem;
-  margin-right: 0.35rem; 
-}
-
-
-/* Clean Horizontal Row Grid */
-.project-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.4rem;
-}
-
-.project-row:last-of-type {
-  margin-bottom: 0;
-}
-
-.project-left-side {
-  display: flex;
-  align-items: baseline;
-}
-
-/* 100% Bold Control for the Name */
-.project-name {
-  font-size: 1.05rem;
-  font-weight: bold;
-}
-
-/* Draws your exact vertical bar using a printable text border */
-.project-name::after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  border-left: 1px solid #777; /* Standardized thin line that Firefox won't strip */
-  height: 0.85rem;
-  
-  /* Symmetrical spacing math specifically for the project row characters */
-  margin-left: 0.55rem;
-  margin-right: 0.55rem;
-}
-
-/* 100% Normal Weight Control for the Description */
-.project-description {
-  font-weight: normal; /* Forces the description text to be clean and readable */
-  color: #111;
-  /* No hardcoded pt sizes here! It inherits your doc's natural fluid screen scale */
-}
-
-.project-link {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #555;
-  text-decoration: none;
-}
+   /* Bullet list alignments */
+   .project-block ul {
+     margin: 0;
+     padding-left: 1.2rem;
+     line-height: 1.35;
+   }
+   
+   
+   /* Custom spacing balance specifically for the Education block characters */
+   .degree-title::after {
+     content: "";
+     display: inline-block;
+     vertical-align: middle;
+     width: 1px;
+     height: 0.85rem;
+     background-color: #777;
+     
+     /* The Balance: Tighten the left side slightly to fight the 'e' font gap, 
+        and give the right side more breathing room against the 'W' */
+     margin-left: 0.4rem;
+     margin-right: 0.35rem; 
+   }
+   
+   
+   /* Clean Horizontal Row Grid */
+   .project-row {
+     display: flex;
+     justify-content: space-between;
+     align-items: baseline;
+     margin-bottom: 0.4rem;
+   }
+   
+   .project-row:last-of-type {
+     margin-bottom: 0;
+   }
+   
+   .project-left-side {
+     display: flex;
+     align-items: baseline;
+   }
+   
+   /* 100% Bold Control for the Name */
+   .project-name {
+     font-size: 1.05rem;
+     font-weight: bold;
+   }
+   
+   /* Draws your exact vertical bar using a printable text border */
+   .project-name::after {
+     content: "";
+     display: inline-block;
+     vertical-align: middle;
+     border-left: 1px solid #777; /* Standardized thin line that Firefox won't strip */
+     height: 0.85rem;
+     
+     /* Symmetrical spacing math specifically for the project row characters */
+     margin-left: 0.55rem;
+     margin-right: 0.55rem;
+   }
+   
+   /* 100% Normal Weight Control for the Description */
+   .project-description {
+     font-weight: normal; /* Forces the description text to be clean and readable */
+     color: #111;
+     /* No hardcoded pt sizes here! It inherits your doc's natural fluid screen scale */
+   }
+   
+   .project-link {
+     font-size: 0.95rem;
+     font-style: italic;
+   }
 
 
 
@@ -262,7 +260,7 @@
     html, body {
      height: auto;
      font-size: 9.5pt;
-     line-height: 1.3;
+     line-height: 1.35;
      padding: 0;
      background: #fff;
      color: #000;
@@ -271,7 +269,7 @@
     a { color: #000; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
   
     /* Typography Scale */
-    .sectionhead { font-size: 11.5pt; padding-top: 3em; page-break-after: avoid; }
+    .sectionhead { font-size: 11.5pt; padding-top: 1.5em; page-break-after: avoid; }
     hr { page-break-after: avoid; margin-bottom: 0.4em; }
     .job-header { font-size: 10pt; }
   
@@ -285,11 +283,12 @@
     /* Tightening layout vertical rhythm */
     ul { margin-top: 0.2em; margin-bottom: 0.2em; }
 
-  h2.sectionhead {
-    font-size: 14pt; 
-    padding-top: 1.5rem; /* Safely tightens the screen space for the physical paper */
-    margin-bottom: 0.25rem;
-  }
+    h2.sectionhead {
+      font-size: 14pt; 
+      padding-top: 1.5rem; /* Safely tightens the screen space for the physical paper */
+      margin-bottom: 0.25rem;
+    }
+   }
   </style>
  </head>
  <body>
@@ -298,10 +297,10 @@
    <h1 class="candidate-name">Alex Stangl</h1>
    <div class="contact-info">
     <span>St. Louis, MO</span>
-    <a href="tel:+13143801120">314-380-1120</a>
-    <a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a>
-    <a href="https://www.linkedin.com/in/alexstangl/" target="_blank">linkedin.com/in/alexstangl</a>
-    <a href="https://github.com/astangl" target="_blank">github.com/astangl</a>
+    <span><a href="tel:+13143801120">314-380-1120</a></span>
+    <span><a href="mailto:alex.stangl@gmail.com">alex.stangl@gmail.com</a></span>
+    <span><a href="https://www.linkedin.com/in/alexstangl/" target="_blank">linkedin.com/in/alexstangl</a></span>
+    <span><a href="https://github.com/astangl" target="_blank">github.com/astangl</a></span>
    </div>
   </header>
 
@@ -403,15 +402,15 @@
     </ul>
      <div class="grid-scroll-container">
       <div class="grid-table">
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920025481.do">Understanding Computation</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/9780596514983.do">Real World Haskell</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920026518.do">Java Cookbook</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920026365.do">Parallel and Concurrent Programming in Haskell</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920028420.do">Java Network Programming</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920030133.do">JavaMail API</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920028277.do">JavaScript Testing with Jasmine</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920029564.do">Speaking JavaScript</a></div>
-       <div class="cell"><a href="http://shop.oreilly.com/product/0636920032663.do">and</a> <a href="http://shop.oreilly.com/product/0636920030690.do">others</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920025481.do" target="_blank">Understanding Computation</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/9780596514983.do" target="_blank">Real World Haskell</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920026518.do" target="_blank">Java Cookbook</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920026365.do" target="_blank">Parallel and Concurrent Programming in Haskell</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920028420.do" target="_blank">Java Network Programming</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920030133.do" target="_blank">JavaMail API</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920028277.do" target="_blank">JavaScript Testing with Jasmine</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920029564.do" target="_blank">Speaking JavaScript</a></div>
+       <div class="cell"><a href="http://shop.oreilly.com/product/0636920032663.do" target="_blank">and</a> <a href="http://shop.oreilly.com/product/0636920030690.do" target="_blank">others</a></div>
       </div>
      </div>
    </article>
@@ -430,66 +429,66 @@
    <hr>
    <div class="project-row">
     <div class="project-left-side">
-     <span class="project-name">get-android-wifi-passwords</span>
+     <span class="project-name" aria-label="Get Android WiFi passwords">get-android-wifi-passwords</span>
      <span class="project-description">extract WiFi passwords from an unrooted Android phone</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/get-android-wifi-passwords">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/get-android-wifi-passwords" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
-     <span class="project-name">gift-swap-picker</span>
+     <span class="project-name" aria-label="Gift swap picker">gift-swap-picker</span>
      <span class="project-description">Holiday gift exchange assignment utility written in Haskell with pairing constraint logic</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/gift-swap-picker">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/gift-swap-picker" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
-     <span class="project-name">uriparser-hs</span>
+     <span class="project-name" aria-label="URI Parser Haskell library">uriparser-hs</span>
      <span class="project-description">RFC 3986-compliant URI parsing library written in pure Haskell</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/uriparser-hs">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/uriparser-hs" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
-     <span class="project-name">list-index</span>
+     <span class="project-name" aria-label="Haskell Fast random access list index">list-index</span>
      <span class="project-description">index allowing fast random access to "infinite" Haskell lists</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/list-index">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/list-index" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
      <span class="project-name">vendingmachine</span>
      <span class="project-description">vending machine simulation written in Haskell, used for Lambda Lounge presentation</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/haskell-vendingmachine">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/haskell-vendingmachine" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
      <span class="project-name">crostex</span>
      <span class="project-description">Crossword compiler that runs in Java 6+ with no external dependencies</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/crostex">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/crostex" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
      <span class="project-name">xroz</span>
      <span class="project-description">JavaScript app to play crossword puzzles in HTML5 browsers</span>
     </div>
-    <a class="project-link" href="https://github.com/astangl/xroz">GitHub</a>
+    <a class="project-link" href="https://github.com/astangl/xroz" target="_blank">GitHub</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
      <span class="project-name">AF0CP</span>
      <span class="project-description">Extra (highest) class amateur radio license</span>
     </div>
-    <a class="project-link" href="https://wireless2.fcc.gov/UlsApp/letterPdf/LetterPdfController?licId=5112336&letterVersionId=159&autoLetterId=0&letterCode=AZ&radioServiceCode=HA&op=LetterPdf&licSide=Y&letterTo=L%20%20%20%20&archive=null">License</a>
+    <a class="project-link" href="https://wireless2.fcc.gov/UlsApp/letterPdf/LetterPdfController?licId=5112336&letterVersionId=159&autoLetterId=0&letterCode=AZ&radioServiceCode=HA&op=LetterPdf&licSide=Y&letterTo=L%20%20%20%20&archive=null" target="_blank">License</a>
    </div>
    <div class="project-row">
     <div class="project-left-side">
      <span class="project-name">4Clojure</span>
      <span class="project-description">Solved all 156 Clojure problems at 4Clojure (now defunct)</span>
     </div>
-    <a class="project-link" href="https://web.archive.org/web/20200709111749/http://www.4clojure.com/user/astangl">Archive</a>
+    <a class="project-link" href="https://web.archive.org/web/20200709111749/http://www.4clojure.com/user/astangl" target="_blank">Archive</a>
    </div>
   </section>
  </body>
